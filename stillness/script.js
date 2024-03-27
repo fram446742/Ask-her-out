@@ -114,6 +114,10 @@ function draw() {
   let textSizeVW = 4 * (windowWidth / 100); // Calculate the text size based on viewport width
   textSize(textSizeVW); // Set the calculated text size
   fill(255);
+
+  let viewportTextSize = min(windowWidth, windowHeight) * 0.04; // Adjust multiplier as needed
+
+  textSize(viewportTextSize); // Set the text size based on the viewport size
   text(question, 22, -50);
 
 }
