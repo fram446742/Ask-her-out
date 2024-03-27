@@ -13,7 +13,11 @@ console.clear();
 (function () {
   const worldRadius = 5;
   const confettiSize = 0.07;
-  const confettiNum = 3000;
+  let confettiNum = 1500;
+  const maxConfettiNum = 2000; // Maximum number of confetti particles
+  const minConfettiNum = 1000; // Minimum number of confetti particles
+  confettiNum = Math.floor(Math.random() * (maxConfettiNum - minConfettiNum + 1) + confettiNum)
+
   const rotateRange_x = Math.PI / 30;
   const rotateRange_y = Math.PI / 50;
   const speed_y = 0.01;
@@ -37,11 +41,11 @@ console.clear();
       worldRadius * 3
     );
     camera.position.z = worldRadius * Math.sqrt(2);
-    //camera.position.set(-1, 1.5, 2);
-    //camera.lookAt(0, 0.5, 0);
+    // camera.position.set(-1, 1.5, 2);
+    // camera.lookAt(0, 0.5, 0);
 
     scene = new THREE.Scene();
-    //scene.background = new THREE.Color(0x666666);
+    // scene.background = new THREE.Color(0x666666);
 
     /////////////////////////////////
     // Confetti
@@ -65,16 +69,8 @@ console.clear();
         "hsl(330, " + saturation + "%, " + lightness + "%)"
       ];
       return colors[Math.floor(Math.random() * colors.length)];
-      //return color.setHex(0xffffff * Math.random());
+      // return color.setHex(0xffffff * Math.random());
     }
-    //
-    // const confettiGeometry = new THREE.PlaneGeometry(
-    //   confettiSize / 2,
-    //   confettiSize
-    // );
-    // Create a heart-shaped geometry
-    // Create a heart-shaped geometry
-    // Create a heart-shaped geometry
     const heartShape = new THREE.Shape();
     heartShape.moveTo(0, 0);
     heartShape.bezierCurveTo(2, 2, 2, 0.5, 0, -2);
@@ -155,10 +151,10 @@ console.clear();
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
   }
+
   function animate() {
     requestAnimationFrame(animate);
     controls.update();
-
     if (confettiMesh) {
       for (let i = 0; i < confettiNum; i++) {
         confettiMesh.getMatrixAt(i, matrix);
@@ -207,8 +203,3 @@ console.clear();
     renderer.render(scene, camera);
   }
 })();
-
-
-function buttonPressed() {
-  window.location.href = 'flower/index.html';
-}

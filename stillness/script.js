@@ -9,7 +9,7 @@ let isFadingIn = false; // New flag to track button fading status
 // Array of emojis
 let emojis = ['😞', '😢', '😔', '😭', '😣', '😩'];
 let phrasesAsk = ['Are you 100% sure?', 'Are you convinced?', 'Are you confident about that?', 'Are you really sure?'];
-let phrasesPermission = ['Please reconsider', 'Allow me the opportunity', 'I only ask for a chance', 'I ask for permission',];
+let phrasesPermission = ['Please reconsider', 'Allow me the opportunity', 'I only ask for a chance', 'I will do my best',];
 let phrasesBad = ['I kindly ask you to stop.', 'Please desist from that action.', 'I respectfully request that you cease.', 'I implore you to refrain from that activity.'];
 
 let usedIndexesAsk = [];
@@ -27,7 +27,11 @@ function setup() {
   nRot = int(random(2, 15));
   stars = [];
   // nStars = int(random(c / 5, c));
-  nStars = int((window.performance.memory.usedJSHeapSize / 1024 / 1024) * 25);
+
+  const maxStars = 1500; // Maximum number of stars
+  const minStars = 300; // Minimum number of stars
+  let nStars = Math.floor(Math.random() * (maxStars - minStars + 1) + minStars); // Initial number of stars
+
   for (let i = 0; i < nStars; i++) {
     stars[i] = {
       x: randomGaussian(0, c / 4),
@@ -238,4 +242,3 @@ function keyPressed() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
 }
-

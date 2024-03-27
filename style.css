@@ -224,8 +224,8 @@ label:hover:after,
 .panel {
 	position: absolute;
 	border-radius: 0.5vmin;
-	width: 35vmin;
-	height: 35vmin;
+	width: 48vmin;
+		height: 50vmin;
 	margin-top: 15vmin;
 	padding-top: 2vmin;
 	max-height: 0;
@@ -253,7 +253,7 @@ input#btn {
 
 #btn:checked+label+.panel {
 	max-height: 32.5vmin;
-	max-width: 35vmin;
+	max-width: 50vmin;
 	margin-top: 10vmin;
 }
 
@@ -263,6 +263,7 @@ input#btn {
 
 .panel ul {
 	margin: 0;
+	width: 100%;
 	padding: 0;
 	list-style: none;
 	display: flex;
@@ -272,7 +273,7 @@ input#btn {
 }
 
 .panel ul li {
-	width: 100%;
+	width: 60%;
 	height: 8vmin;
 	border-bottom: 1px solid var(--dark);
 	font-size: 2.4vmin;
@@ -320,19 +321,19 @@ input#btn {
 }
 
 .panel ul li.item1:after {
-	content: 'Always, I love you 💖';
+	content: 'I want to ask you something... 😊';
 	align-content: center;
 	cursor: pointer;
 }
 
 .panel ul li.item2:after {
-	content: "You're my everything";
+	content: "You're always on my mind";
 	align-content: center;
 	color: dimgray;
 }
 
 .panel ul li.item3:after {
-	content: 'I think I like you';
+	content: 'Your presence fills my thoughts';
 	align-content: center;
 	color: dimgray;
 	font-size: 100%;
