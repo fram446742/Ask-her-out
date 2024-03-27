@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CodePen - Notification Icon + Micro Interaction - CSS</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="./style.css">
+
+</head>
+
+<body style="display: flex; flex-direction: column; font-family: 'Montserrat', sans-serif;">
+	<!-- partial:index.partial.html -->
+
+	<div>
+		<h1 id="selfRevealingH1" style="color:pink; font-size: 4vw;">Hi sweetie, you have a new notification...</h1>
+	</div>
+
+	<div class="notification">
+		<input type="checkbox" name="btn" id="btn" onclick="this.checked ? document.getElementById('selfRevealingH4').hidden = false : document.getElementById('selfRevealingH4').hidden = true">
+		<label for="btn">
+			<span class="counter">1</span>
+		</label>
+		<div class="panel">
+			<ul>
+				<li class="item1" id="linkItem" ></li>
+				<li class="item2" ></li>
+				<li class="item3" ></li>
+				<li class="item4" ></li>
+			</ul>
+		</div>
+	</div>
+
+	<div>
+		<h4 id="selfRevealingH4" style="color:pink; font-size: 2vw;" hidden>Just click on it 😉</h4>
+	</div>
+	<!-- partial -->
+<script>
+	document.getElementById("linkItem").addEventListener("mouseover", function () {
+		this.style.color = "red"; // Change the color to red when mouse hovers over
+	});
+
+	document.getElementById("linkItem").addEventListener("mouseout", function () {
+		this.style.color = ""; // Reset the color when mouse moves out
+	});
+
+	document.getElementById("linkItem").addEventListener("click", function () {
+		window.location.href = "stillness/index.html";
+	});
+</script>
+
+</body>
+
+</html>
